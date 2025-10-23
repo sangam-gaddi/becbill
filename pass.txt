@@ -1,0 +1,30 @@
+9TC3IGa2Tkp1S876
+mongodb+srv://sangam:9TC3IGa2Tkp1S876@cluster0.a833qjm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+const { MailtrapClient } = require("mailtrap");
+
+const TOKEN = "a8731986114ece6b544fb8d5739fd113";
+
+const client = new MailtrapClient({
+  token: TOKEN,
+});
+
+const sender = {
+  email: "hello@demomailtrap.co",
+  name: "Mailtrap Test",
+};
+const recipients = [
+  {
+    email: "sangamgaddi17@gmail.com",
+  }
+];
+
+client
+  .send({
+    from: sender,
+    to: recipients,
+    subject: "You are awesome!",
+    text: "Congrats for sending test email with Mailtrap!",
+    category: "Integration Test",
+  })
+  .then(console.log, console.error);
